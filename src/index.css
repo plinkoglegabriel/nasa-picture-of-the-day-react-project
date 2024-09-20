@@ -13,15 +13,22 @@
 }
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 #root {
-  display: flex;
   min-height: 100vh;
-  position: relative;
+  display: flex;
+  display: relative;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  width: 100%;
 }
 
 .bgImage {
@@ -31,17 +38,13 @@
   object-fit: cover;
 }
 
-.imgContainer {
-  display: flex;
-  flex-direction: column;
-}
-
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem;
@@ -50,7 +53,6 @@ footer {
 footer div {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 footer h2 {
@@ -63,14 +65,13 @@ footer h1 {
 }
 
 footer button {
-  background:  transparent;
-  color: white;
+  background: transparent;
   border: none;
   outline: none;
+  color: white;
   padding: 1rem;
   transition-duration: 200ms;
   cursor: pointer;
-
 }
 
 footer button i {
@@ -85,7 +86,7 @@ footer button:hover {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(to top, #030615, transparent);
+  background: linear-gradient(to top, #030615, rgba(255, 255, 255, 0));
 }
 
 .sidebar {
@@ -112,12 +113,12 @@ footer button:hover {
   padding: 1rem;
   overflow-y: scroll;
   height: 100%;
-  width: 90%;
+  width: 80%;
   max-width: 800px;
   margin-left: auto;
   background: #030615;
-
 }
+
 .sidebarContent h2 {
   font-weight: 200;
   font-size: 1.4rem;
@@ -127,7 +128,7 @@ footer button:hover {
   flex: 1;
 }
 
-.sidebarContent button {
+.sidebar Content button {
   background: transparent;
   color: white;
   border: none;
@@ -141,11 +142,13 @@ footer button:hover {
 .sidebarContent button:hover {
   opacity: 0.7;
 }
+
 .descriptionContainer {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .descriptionTitle {
   font-size: 1.1rem;
   font-weight: 200;
@@ -153,8 +156,8 @@ footer button:hover {
 
 .loadingState {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex: 1;
 }
 
@@ -168,19 +171,30 @@ footer button:hover {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 
 @media (min-width: 640px) {
   .sidebar {
     position: relative;
     inset: unset;
     min-width: 30%;
+    max-height: 100vh;
     box-shadow: 0 0 40px 1px #030615;
   }
+
   .sidebarContent {
     margin: unset;
+    width: 100%;
+  }
+
+  .bgOverlay {
+    right: 0;
+    left: unset;
+    width: 100vw;
   }
 }
